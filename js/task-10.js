@@ -9,14 +9,19 @@ const input = controls.children[0];
 const create = controls.children[1];
 const destroy = controls.children[2];
 const boxes = document.getElementById("boxes")
-
+const min = parseInt(input.min);
+const max = parseInt(input.max);
+const step = parseInt(input.step);
 
 create.addEventListener("click", onCreateBoxes)
 destroy.addEventListener("click", destroyBoxes)
 
 function createBoxes(amount) {
   const newBoxes = [];
-  for (let i = 0; i < amount; i += 1) {
+  if (amount<min || amount>max) {
+    alert(`Введите число от ${min} до ${max}.`)
+  } else {
+for (let i = 0; i < amount; i += step) {
     const div = document.createElement("div");
     div.style.width = `${30 + 10 * i}px `;
     div.style.height = `${30 + 10 * i}px`;
@@ -24,6 +29,7 @@ function createBoxes(amount) {
     newBoxes.push(div);
   }
   return newBoxes;
+  }
 }
 
 function onCreateBoxes() {

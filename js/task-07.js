@@ -4,6 +4,7 @@ const text = document.getElementById("text");
 
 input.addEventListener("input", onChange);
 
-function onChange (event) {
-    text.style.fontSize = `${event.target.value}px`;
+function onChange () {
+    text.style.fontSize = `${input.value}px`;
 }
+onChange()

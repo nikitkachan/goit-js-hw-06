@@ -3,14 +3,14 @@ console.dir(validationInput);
 
 const onBlurChange = (event) => {
     
-if (event.currentTarget.value.length != event.currentTarget.dataset.length) {
+if (event.currentTarget.value.trim().length !== parseInt(event.currentTarget.dataset.length)) {
     validationInput.classList.add("invalid");
     validationInput.classList.remove("valid");
 }
-    if (event.currentTarget.value.length == event.currentTarget.dataset.length) {
+    else {
         validationInput.classList.add("valid");
         validationInput.classList.remove("invalid");
     }
 }
 
-validationInput.addEventListener("input", onBlurChange)
+validationInput.addEventListener("input", onBlurChange);

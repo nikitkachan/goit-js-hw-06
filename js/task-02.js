@@ -8,29 +8,15 @@ const ingredients = [
 ];
 
 const ingredientsListEl = document.querySelector("#ingredients");
+const ingredientsArr = [];
+for (let i = 0; i < ingredients.length; i +=1) {
+  
+  const newIngredient = document.createElement("li");
+  newIngredient.textContent = ingredients[i];
+  newIngredient.classList.add("item");
 
-const ingredientPotatoEl = document.createElement("li");
-ingredientPotatoEl.textContent = ingredients[0];
-ingredientPotatoEl.classList.add("item");
+  ingredientsArr.push(newIngredient);
 
-const ingredientMushroomsEl = document.createElement("li");
-ingredientMushroomsEl.textContent = ingredients[1];
-ingredientMushroomsEl.classList.add("item");
+}
 
-const ingredientGarlicEl = document.createElement("li");
-ingredientGarlicEl.textContent = ingredients[2];
-ingredientGarlicEl.classList.add("item");
-
-const ingredientTomatosEl = document.createElement("li");
-ingredientTomatosEl.textContent = ingredients[3];
-ingredientTomatosEl.classList.add("item");
-
-const ingredientHerbsEl = document.createElement("li");
-ingredientHerbsEl.textContent = ingredients[4];
-ingredientHerbsEl.classList.add("item");
-
-const ingredientCondimentsEl = document.createElement("li");
-ingredientCondimentsEl.textContent = ingredients[5];
-ingredientCondimentsEl.classList.add("item");
-
-ingredientsListEl.append(ingredientPotatoEl, ingredientMushroomsEl, ingredientGarlicEl, ingredientTomatosEl, ingredientHerbsEl, ingredientCondimentsEl);
+ingredientsListEl.append(...ingredientsArr)
